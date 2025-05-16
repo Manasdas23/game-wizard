@@ -4,10 +4,11 @@ import { Game } from '../../interfaces/model';
 import { GameServiceService } from '../../core/services/game-service.service';
 import { GameCardComponent } from "./game-card/game-card.component";
 import { CommonModule } from '@angular/common';
+import { SidebarComponent } from "../../layout/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [FlashScreenComponent, GameCardComponent,CommonModule],
+  imports: [FlashScreenComponent, GameCardComponent, CommonModule, SidebarComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

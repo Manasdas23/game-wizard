@@ -3,25 +3,55 @@
 
 } @else {
 
+<!-- <div class="min-h-screen p-4 bgt">
+  <div class="game-container">
+    <div class="category-tabs">
+      <button
+        *ngFor="let category of categories"
+        [class.active]="selectedCategory === category"
+        (click)="filterByCategory(category)"
+      >
+        {{ category | titlecase }}
+      </button>
+    </div>
 
-  <div class="min-h-screen p-4 bgt">
-    <div class="game-container">
-  <div class="category-tabs">
-    <button 
-      *ngFor="let category of categories"
-      [class.active]="selectedCategory === category"
-      (click)="filterByCategory(category)">
-      {{ category | titlecase }}
-    </button>
+    <div class="game-grid">
+      <app-game-card *ngFor="let game of games" [game]="game"> </app-game-card>
+    </div>
+  </div>
+</div> -->
+<div class="bg-gradient-to-br from-[#EE9B00] to-[#AE2012] ">
+
+
+<div
+  class="flex gap-1 w-full p-4 h-screen"
+>
+  <div class="">
+    <app-sidebar></app-sidebar>
   </div>
 
-  <div class="game-grid">
-    <app-game-card 
-      *ngFor="let game of games"
-      [game]="game">
-    </app-game-card>
+  <div class="w-full">
+    <div class="p-4 w-full mx-auto h-full overflow-y-auto">
+      <div class="flex gap-2 overflow-x-auto py-4 mb-4">
+        <button
+          *ngFor="let category of categories"
+          class="bg-gray-100 border-none rounded-full px-4 py-2 whitespace-nowrap transition-all duration-200 hover:bg-gray-200"
+          [ngClass]="{
+            'bg-purple-700 text-white': selectedCategory === category
+          }"
+          (click)="filterByCategory(category)"
+        >
+          {{ category | titlecase }}
+        </button>
+      </div>
+
+      <div
+        class="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4 auto-rows-[minmax(180px,auto)] grid-flow-dense max-[768px]:grid-cols-[repeat(auto-fill,minmax(140px,1fr))] max-[480px]:grid-cols-[repeat(auto-fill,minmax(120px,1fr))]"
+      >
+        <app-game-card *ngFor="let game of games" [game]="game"></app-game-card>
+      </div>
+    </div>
   </div>
 </div>
 </div>
 }
-
