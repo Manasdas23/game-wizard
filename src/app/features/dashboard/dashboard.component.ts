@@ -22,14 +22,14 @@ export class DashboardComponent {
   public categories: string[] = [];
   public selectedCategory = 'all';
 
-  ngOnInit() {
-    setTimeout(() => {
-      this.showFlash = false;
-    }, 5000);
+  // ngOnInit() {
+  //   setTimeout(() => {
+  //     this.showFlash = false;
+  //   }, 5000);
 
-    this.categories = this.gameService.getCategories();
-    this.games = this.gameService.getGames();
-  }
+  //   this.categories = this.gameService.getCategories();
+  //   this.games = this.gameService.getGames();
+  // }
 
 
   filterByCategory(category: string): void {
