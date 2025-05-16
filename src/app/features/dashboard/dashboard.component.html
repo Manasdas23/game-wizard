@@ -3,23 +3,6 @@
 
 } @else {
 
-<!-- <div class="min-h-screen p-4 bgt">
-  <div class="game-container">
-    <div class="category-tabs">
-      <button
-        *ngFor="let category of categories"
-        [class.active]="selectedCategory === category"
-        (click)="filterByCategory(category)"
-      >
-        {{ category | titlecase }}
-      </button>
-    </div>
-
-    <div class="game-grid">
-      <app-game-card *ngFor="let game of games" [game]="game"> </app-game-card>
-    </div>
-  </div>
-</div> -->
 <div class="bg-gradient-to-br from-[#EE9B00] to-[#AE2012]">
   <div class="flex gap-1 w-full p-4 h-screen">
     <div class="">
@@ -28,25 +11,32 @@
 
     <div class="w-full flex flex-col gap-2 p-4">
       <div class="w-full">
-        <div class="flex items-center bg-white/20 rounded-4xl overflow-hidden p-2">
+        <div
+          class="flex items-center bg-white/20 rounded-4xl overflow-hidden p-2"
+        >
           <input
             type="text"
             placeholder="Search game"
+            [(ngModel)]="searchTerm"
+            (input)="onSearchChange()"
             class="flex-1 px-4 py-3 bg-transparent text-white text-3xl placeholder-white focus:outline-none"
           />
           <div class="px-4 h-[1.5rem] flex items-center">
-            <img src="assets/icon/search.svg" alt="" class="h-[1.5rem] ">
+            <img src="assets/icon/search.svg" alt="" class="h-[1.5rem]" />
           </div>
         </div>
       </div>
 
-      <div class=" w-full mx-auto h-full overflow-y-auto">
+      <div class="w-full mx-auto h-full overflow-y-auto">
         <div class="flex gap-2 overflow-x-auto py-4 mb-4">
           <button
             *ngFor="let category of categories"
-            class="bg-gray-100 border-none rounded-full px-4 py-2 whitespace-nowrap transition-all duration-200 hover:bg-gray-200"
+            class="rounded-full px-4 py-2 whitespace-nowrap font-medium text-sm shadow-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#b45309]"
             [ngClass]="{
-              'bg-purple-700 text-white': selectedCategory === category
+              'bg-[#bd6500] text-white shadow-lg':
+                selectedCategory === category,
+              'bg-[#f59e0b] text-white hover:bg-[#dc6c00]':
+                selectedCategory !== category
             }"
             (click)="filterByCategory(category)"
           >
@@ -67,4 +57,3 @@
   </div>
 </div>
 }
-
