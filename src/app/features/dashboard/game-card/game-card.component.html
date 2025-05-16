@@ -1,8 +1,6 @@
-<div class="game-card">
-  <div class="thumbnail-container">
-    <img [src]="game.thumbnail" [alt]="game.title + ' thumbnail'" class="thumbnail">
-  </div>
-  <div class="game-info">
+<div class="game-card h-full"  [ngStyle]="{ 'background-image': 'url(' + game.thumbnail + ')', 'background-size': 'cover', 'background-position': 'center' }">
+  
+  <div class="game-info text-white bg-green">
     <h3 class="game-title">{{ game.title }}</h3>
     <div class="game-meta" *ngIf="game.rating || game.players">
       <span class="rating" *ngIf="game.rating">★ {{ game.rating }}</span>
@@ -10,6 +8,10 @@
     </div>
   </div>
 </div>
+
+<!-- <div class="thumbnail-container">
+    <img [src]="game.thumbnail" [alt]="game.title + ' thumbnail'" class="thumbnail">
+  </div> -->
 
 <!-- 
 <div class="game-card" [class.featured]="game.featured" [class.square]="game.aspectRatio === 'square'"
