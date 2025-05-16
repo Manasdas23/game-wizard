@@ -1,0 +1,22 @@
+.login-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(110.4deg, #EE9B00 8.3%, #AE2012 83.87%);
+  backdrop-filter: blur(224px)
+}
+
+
+
+.login-screen__description {
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  color: #FFFFFF99;
+}
+
+.login-screen__content{
+    gap: 10rem;
+    
+}
