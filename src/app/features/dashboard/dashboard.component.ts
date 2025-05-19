@@ -8,10 +8,11 @@ import { SidebarComponent } from "../../layout/sidebar/sidebar.component";
 import { FormsModule } from '@angular/forms';
 import { GameListComponent } from "./game-list/game-list.component";
 import { HeaderComponent } from "../../layout/header/header.component";
+import { GamePlayerComponent } from "./game-player/game-player.component";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [FlashScreenComponent, CommonModule, SidebarComponent, FormsModule, GameListComponent, HeaderComponent],
+  imports: [FlashScreenComponent, CommonModule, SidebarComponent, FormsModule, GameListComponent, HeaderComponent, GamePlayerComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

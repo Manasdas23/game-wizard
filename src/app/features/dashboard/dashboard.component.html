@@ -16,13 +16,15 @@
           (searchChanged)="onSearchTermChanged($event)"
         ></app-header>
 
+<app-game-player></app-game-player>
+
         <!-- GAME LIST -->
-        <app-game-list
+        <!-- <app-game-list
           [games]="games"
           [categories]="categories"
           [selectedCategory]="selectedCategory"
           (categoryChanged)="filterByCategory($event)"
-        ></app-game-list>
+        ></app-game-list> -->
       </div>
     </div>
   </div>
