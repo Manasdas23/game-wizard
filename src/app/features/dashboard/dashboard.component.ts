@@ -6,15 +6,17 @@ import { GameCardComponent } from "./game-card/game-card.component";
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from "../../layout/sidebar/sidebar.component";
 import { FormsModule } from '@angular/forms';
+import { GameListComponent } from "./game-list/game-list.component";
+import { HeaderComponent } from "../../layout/header/header.component";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [FlashScreenComponent, GameCardComponent, CommonModule, SidebarComponent,FormsModule],
+  imports: [FlashScreenComponent, CommonModule, SidebarComponent, FormsModule, GameListComponent, HeaderComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  public showFlash = true;
+ public showFlash = true;
   public games: Game[] = [];
   public allGames: Game[] = [];
   public categories: string[] = [];
@@ -35,9 +37,13 @@ export class DashboardComponent {
     this.filterGames();
   }
 
-  onSearchChange(): void {
-    this.filterGames();
-  }
+  // onSearchChange(): void {
+  //   this.filterGames();
+  // }
+  onSearchTermChanged(term: string): void {
+  this.searchTerm = term;
+  this.filterGames();
+}
 
   private filterGames(): void {
     const filteredByCategory =
@@ -45,10 +51,9 @@ export class DashboardComponent {
         ? this.allGames
         : this.gameService.getGamesByCategory(this.selectedCategory);
 
-    this.games = filteredByCategory.filter(game =>
+    this.games = filteredByCategory.filter((game) =>
       game.title.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
-
 
 }
